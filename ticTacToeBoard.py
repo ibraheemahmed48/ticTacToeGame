@@ -26,13 +26,13 @@ class TicTacToeBoard(tk.Tk):
         menu_bar.add_cascade(label="File", menu=file_menu)
 
     def _create_board_display(self):
-        display_frame = tk.Frame(master=self, bg="red")
+        display_frame = tk.Frame(master=self, background="red",)
         display_frame = tk.Frame(master=self)
         display_frame.pack(fill=tk.X)
         self.display = tk.Label(
             master=display_frame,
             text="جاهز ؟ ",
-            font=font.Font(family='Tajawal', size=20, weight='bold'),
+            font=font.Font(family='Arial', size=20, weight='bold'),
 
         )
         self.display.pack()
@@ -48,9 +48,10 @@ class TicTacToeBoard(tk.Tk):
                     master=grid_frame,
                     text="",
                     font=font.Font(size=36, weight="bold"),
-                    fg="black",
-                    width=3,
-                    height=2,
+                    bg="White",  # set the background color to green
+                    fg="White", 
+                    width=8,
+                    height=3,
                     highlightbackground="lightblue",
                 )
                 self._cells[button] = (row, col)
@@ -88,12 +89,12 @@ class TicTacToeBoard(tk.Tk):
     def _highlight_cells(self):
         for button, coordinates in self._cells.items():
             if coordinates in self._game.winner_combo:
-                button.config(highlightbackground="red")
+                button.config(highlightbackground="white")
 
     def reset_board(self):
         """Reset the game's board to play again."""
         self._game.reset_game()
-        self._update_display(msg="جاهز")
+        self._update_display(msg="جاهز ؟")
         for button in self._cells.keys():
             button.config(highlightbackground="lightblue")
             button.config(text="")

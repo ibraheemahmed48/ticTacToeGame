@@ -5,12 +5,15 @@ from typing import NamedTuple
 from ticTacToeGame import TicTacToeGame
 from ticTacToeBoard import TicTacToeBoard
 
-def main():
+
+    
+    
+if __name__ == "__main__":
     game = TicTacToeGame()
     board = TicTacToeBoard(game)
     board.mainloop()
-if __name__ == "__main__":
-    main()
+    print("XO Game is running")
+    
     
     
     
